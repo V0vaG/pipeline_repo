@@ -24,15 +24,6 @@ jobs:
       - name: Run ls
         run: ls
         
-  build_repo:
-    needs: build_pkg
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Run ls
-        run: ls
-        
       - name: Run cd && ls
         run: cd apt-repo/pool/main/ && ls
         
@@ -44,6 +35,8 @@ jobs:
         
       - name: Run cd && ls
         run: cd apt-repo/dists/stable/main/binary-amd64 && ls
+        
+      - uses: actions/checkout@v4
         
       - name: zip Packages.gz
         run: cat dists/stable/main/binary-amd64/Packages | gzip -9 > dists/stable/main/binary-amd64/Packages.gz
