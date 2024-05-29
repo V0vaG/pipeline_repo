@@ -54,6 +54,9 @@ jobs:
       - name: generate release
         run: cd apt-repo && bash generate-release.sh > Release
         
+      - name: Run cd && ls
+        run: cd apt-repo && ls
+        
         #cd ~/GIT/vova_repo/
 #~/GIT/vova_repo/generate-release.sh > Release
         
