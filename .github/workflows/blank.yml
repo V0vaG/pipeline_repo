@@ -20,7 +20,10 @@ jobs:
 
       - name: Run build_pkg script
         run: bash build_pkg.sh
-
+        
+      - name: Run ls
+        run: ls
+        
   build_repo:
     needs: build_pkg
     runs-on: ubuntu-latest
