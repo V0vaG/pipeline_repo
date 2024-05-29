@@ -13,9 +13,10 @@ jobs:
       - uses: actions/checkout@v4
       
       - name: Run mkdir
-        run: |
-          mkdir -p ./apt-repo/pool/main/
-		  mkdir -p ./apt-repo/dists/stable/main/binary-amd64
+        run: mkdir -p ./apt-repo/pool/main/
+        
+      - name: Run mkdir
+        run: mkdir -p ./apt-repo/dists/stable/main/binary-amd64
 
       - name: Run build_pkg script
         run: bash build_pkg.sh
