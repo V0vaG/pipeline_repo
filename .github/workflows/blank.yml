@@ -36,9 +36,10 @@ jobs:
       - name: Run cd && ls
         run: cd apt-repo/dists/stable/main/binary-amd64 && ls
         
-      - uses: actions/checkout@v4
+
         
       - name: zip Packages.gz
+      - uses: actions/checkout@v4
         run: cat dists/stable/main/binary-amd64/Packages | gzip -9 > dists/stable/main/binary-amd64/Packages.gz
         
       - name: Run cd && make Release
