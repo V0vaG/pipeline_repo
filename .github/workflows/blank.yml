@@ -49,7 +49,7 @@ jobs:
         run: cd apt-repo/dists/stable/ && ls
         
       - name: generate release.sh
-        run: cd apt-repo && bash generate-release.sh > Release
+        run: cd apt-repo && bash ~/generate-release.sh > Release
         
         #cd ~/GIT/vova_repo/
 #~/GIT/vova_repo/generate-release.sh > Release
