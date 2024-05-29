@@ -20,21 +20,23 @@ jobs:
 
       - name: Run build_pkg script
         run: bash build_pkg.sh
+
+      - name: checkout
+        uses: actions/checkout@v4
         
       - name: Run ls
         run: ls
         
-      - name: Run cd && ls
+      - name: Run cd main && ls
         run: cd apt-repo/pool/main/ && ls
         
-      - name: Run cd && ls
+      - name: Run cd binary-amd64 && ls
         run: cd apt-repo/dists/stable/main/binary-amd64 && ls
         
       - name: Run cd && scan packages
         run: cd apt-repo && dpkg-scanpackages --arch amd64 pool/ > dists/stable/main/binary-amd64/Packages
         
-      - name: checkout
-        uses: actions/checkout@v4
+
         
       - name: Run cd && ls
         run: cd apt-repo/dists/stable/main/binary-amd64 && ls
