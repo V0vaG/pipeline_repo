@@ -57,6 +57,9 @@ jobs:
       - name: Run cd && ls
         run: cd apt-repo && ls
         
+      - name: Run cd && cat Release
+        run: cd apt-repo && cat Release
+        
         #cd ~/GIT/vova_repo/
 #~/GIT/vova_repo/generate-release.sh > Release
         
