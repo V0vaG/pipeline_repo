@@ -33,9 +33,9 @@ Description: ${file%.*}" > "${file%.*}_${version}_$architecture/DEBIAN/control"
 
 	dpkg --build ./${file%.*}_${version}_$architecture
 	
-	#mv "${file%.*}_${version}_$architecture.deb" "./apt-repo/pool/main/${file%.*}_${version}_$architecture.deb"
+	mv "${file%.*}_${version}_$architecture.deb" "./apt-repo/pool/main/${file%.*}_${version}_$architecture.deb"
 
-	#rm -r ${file%.*}_${version}_$architecture
+	rm -r ${file%.*}_${version}_$architecture
 done
 
 
