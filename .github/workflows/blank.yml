@@ -48,8 +48,11 @@ jobs:
       - name: Run cd && make Release
         run: cd apt-repo/dists/stable/ && ls
         
-      - name: generate release.sh
-        run: cd apt-repo && bash ~/generate-release.sh > Release
+      - name: mv
+        run: mv generate-release.sh apt-repo
+        
+      - name: generate release
+        run: cd apt-repo && bash generate-release.sh > Release
         
         #cd ~/GIT/vova_repo/
 #~/GIT/vova_repo/generate-release.sh > Release
