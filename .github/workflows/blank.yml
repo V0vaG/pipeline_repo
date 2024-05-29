@@ -21,6 +21,11 @@ jobs:
       - name: Run build_pkg script
         run: bash build_pkg.sh
 
+  build_repo:
+    needs: build_pkg
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
 
       - name: Run ls
         run: ls
@@ -37,9 +42,14 @@ jobs:
       - name: Run cd && ls
         run: cd apt-repo/dists/stable/main/binary-amd64 && ls
         
-      #- name: zip Packages.gz
-      #  run: cat dists/stable/main/binary-amd64/Packages | gzip -9 > dists/stable/main/binary-amd64/Packages.gz
+      - name: zip Packages.gz
+        run: cat dists/stable/main/binary-amd64/Packages | gzip -9 > dists/stable/main/binary-amd64/Packages.gz
         
+      - name: Run cd && make Release
+        run: cd apt-repo/dists/stable/ && ls
+        
+        #cd ~/GIT/vova_repo/
+#~/GIT/vova_repo/generate-release.sh > Release
         
         
         
