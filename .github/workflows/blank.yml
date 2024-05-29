@@ -41,8 +41,14 @@ jobs:
       - name: Run cd && ls
         run: cd apt-repo/dists/stable/main/binary-amd64 && ls
         
-      - name: zip Packages.gz
-        run: cat apt-repo/dists/stable/main/binary-amd64/Packages | gzip -9 > dists/stable/main/binary-amd64/Packages.gz
+      #- name: zip Packages.gz
+      #  run: cat apt-repo/dists/stable/main/binary-amd64/Packages | gzip -9 > dists/stable/main/binary-amd64/Packages.gz
+      
+      - name: zip Packages
+        run: gzip -9 apt-repo/dists/stable/main/binary-amd64/Packages 
+        
+      - name: Run cd && ls
+        run: cd apt-repo/dists/stable/main/binary-amd64 && ls
         
       - name: Run cd && make Release
         run: cd apt-repo/dists/stable/ && ls
