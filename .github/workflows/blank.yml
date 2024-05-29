@@ -24,3 +24,6 @@ jobs:
 
       - name: Run ls
         run: ls
+        
+      - name: Run cd && ls
+        run: cd apt-repo/pool/main/ && ls
