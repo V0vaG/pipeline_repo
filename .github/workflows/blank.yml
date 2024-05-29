@@ -20,9 +20,6 @@ jobs:
 
       - name: Run build_pkg script
         run: bash build_pkg.sh
-
-     # - name: checkout
-    #    uses: actions/checkout@v4
         
       - name: Run ls
         run: ls
@@ -36,22 +33,23 @@ jobs:
       - name: Run cd && scan packages
         run: cd apt-repo && dpkg-scanpackages --arch amd64 pool/ > dists/stable/main/binary-amd64/Packages
         
-
-        
       - name: Run cd && ls
         run: cd apt-repo/dists/stable/main/binary-amd64 && ls
-        
-      #- name: zip Packages.gz
-      #  run: cat apt-repo/dists/stable/main/binary-amd64/Packages | gzip -9 > dists/stable/main/binary-amd64/Packages.gz
       
       - name: zip Packages
         run: gzip -9 apt-repo/dists/stable/main/binary-amd64/Packages 
+     
+      - name: Run cd && ls
+        run: cd apt-repo/dists/stable/main/binary-amd64 && ls
         
       - name: Run cd && ls
         run: cd apt-repo/dists/stable/main/binary-amd64 && ls
         
       - name: Run cd && make Release
         run: cd apt-repo/dists/stable/ && ls
+        
+      - name: generate release.sh
+        run: cd apt-repo && generate-release.sh > Release
         
         #cd ~/GIT/vova_repo/
 #~/GIT/vova_repo/generate-release.sh > Release
