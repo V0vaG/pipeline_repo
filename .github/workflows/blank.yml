@@ -34,12 +34,12 @@ jobs:
         run: cd apt-repo && dpkg-scanpackages --arch amd64 pool/ > dists/stable/main/binary-amd64/Packages
         
       - name: Run cd && ls
+      - uses: actions/checkout@v4
         run: cd apt-repo/dists/stable/main/binary-amd64 && ls
         
 
         
       - name: zip Packages.gz
-      - uses: actions/checkout@v4
         run: cat dists/stable/main/binary-amd64/Packages | gzip -9 > dists/stable/main/binary-amd64/Packages.gz
         
       - name: Run cd && make Release
