@@ -28,8 +28,14 @@ jobs:
       - name: Run cd && ls
         run: cd apt-repo/pool/main/ && ls
         
+      - name: Run cd && ls
+        run: cd apt-repo/dists/stable/main/binary-amd64 && ls
+        
       - name: Run cd && scan packages
         run: cd apt-repo && dpkg-scanpackages --arch amd64 pool/ > dists/stable/main/binary-amd64/Packages
+        
+      - name: Run cd && ls
+        run: cd apt-repo/dists/stable/main/binary-amd64 && ls
         
       - name: zip Packages.gz
         run: cat dists/stable/main/binary-amd64/Packages | gzip -9 > dists/stable/main/binary-amd64/Packages.gz
